@@ -1,0 +1,175 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Стили для кнопки бургер-меню */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 24px;
+
+}
+.menu-icon, .menu-icon::before, .menu-icon::after{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    transition: all .3s ease-in-out;
+}
+.menu-icon{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu-icon::before{
+    content: '';
+    top: -10px;
+}
+.menu-icon::after{
+    content: '';
+    top: 10px;
+}
+.menu-toggle.active .menu-icon{
+    background-color: transparent;
+}
+.menu-toggle.active .menu-icon::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.menu-toggle.active .menu-icon::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+/* Скрываем меню на маленьких экранах */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #343a40;
+    padding: 10px;
+    text-align: center;
+}
+.nav-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+/* Показываем меню при открытии */
+.nav-menu.active {
+    display: flex;
+}
+main {
+    padding: 70px 0 20px;
+}
+section {
+    margin-bottom: 30px;
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+section h2 {
+    color: white;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+section ul,
+section ol {
+    padding-left: 20px;
+}
+section li {
+    margin-bottom: 5px;
+}
+section a {
+    color: #28899f;
+}
+section a:hover {
+    text-decoration: underline;
+}
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 30px;
+}
+
+.bg-image {
+    margin-top: 115px;
+    height: 400px;
+    background: url('image.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Media queries for larger screens */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* Скрываем бургер на больших экранах */
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: row; /* Меню в строку */
+        position: static;
+        background: none;
+        padding: 0;
+        text-align: left;
+
+    }
+    .nav-menu a {
+        display: inline;
+        padding: 0;
+        margin-left: 20px;
+
+    }
+    header h1{
+        font-size: 2rem;
+    }
+    .container {
+        width: 80%;
+    }
+}
